@@ -1,20 +1,55 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <title>Django Tailwind</title>
+    <title>{% block title %}CKI - Cyber Knowledge Intelligence{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% tailwind_css %}
 </head>
 
-<body class="bg-gray-50 text-black font-serif leading-normal tracking-normal">
+<body class="min-h-screen bg-base-200 font-sans">
+    <!-- Navbar -->
+    <div class="navbar bg-base-100 shadow-lg">
+        <div class="flex-1">
+            <a href="{% url 'home' %}" class="btn btn-ghost text-xl text-primary">
+                🛡️ CKI - Cyber Knowledge Intelligence
+            </a>
+        </div>
+        <div class="flex-none gap-2">
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost m-1">
+                    <span>Dashboard</span>
+                    <svg class="fill-current opacity-60 inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M781 1437l768 768-115 114L666 1551 102 905V128h128v723z"></path></svg>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Vulnerabilities</a></li>
+                    <li><a href="#">Threats</a></li>
+                </ul>
+            </div>
+            <button class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><stroke-line cap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></stroke-line></svg>
+            </button>
+            <button class="btn btn-ghost btn-circle avatar">
+                <div class="w-10 rounded-full">
+                    <img alt="User" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                </div>
+            </button>
+        </div>
+    </div>
 
-<div class="container mx-auto">
-    <section class="flex items-center justify-center h-screen">
-        <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-    </section>
-</div>
+    <!-- Main Content -->
+    <div class="container mx-auto p-6">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-4 bg-base-100 text-base-content mt-10">
+        <aside>
+            <p>Copyright © 2026 - All right reserved by CKI Project</p>
+        </aside>
+    </footer>
 </body>
 </html>
