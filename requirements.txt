@@ -1,0 +1,7 @@
+django 
+mysqlclient 
+django-tailwind 
+django-browser-reload 
+requests 
+beautifulsoup4 
+django-apscheduler
